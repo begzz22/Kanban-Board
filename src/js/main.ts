@@ -319,26 +319,27 @@ function renderTasks(): void {
       </div>
     `;
 
-    // Update task counts
-    const todoTasksCount = tasks.filter((t) => t.status === "todo").length;
-    const inProgressTasksCount = tasks.filter(
-      (t) => t.status === "in-progress",
-    ).length;
-    const completedTasksCount = tasks.filter(
-      (t) => t.status === "completed",
-    ).length;
-
-    if (todoCount) {
-      todoCount.textContent = `${todoTasksCount} task${todoTasksCount !== 1 ? "s" : ""}`;
-    }
-    if (inProgressCount) {
-      inProgressCount.textContent = `${inProgressTasksCount} task${inProgressTasksCount !== 1 ? "s" : ""}`;
-    }
-    if (completedCount) {
-      completedCount.textContent = `${completedTasksCount} task${completedTasksCount !== 1 ? "s" : ""}`;
-    }
     container.appendChild(taskCard);
   });
+
+  // Update task counts
+  const todoTasksCount = tasks.filter((t) => t.status === "todo").length;
+  const inProgressTasksCount = tasks.filter(
+    (t) => t.status === "in-progress",
+  ).length;
+  const completedTasksCount = tasks.filter(
+    (t) => t.status === "completed",
+  ).length;
+
+  if (todoCount) {
+    todoCount.textContent = `${todoTasksCount} task${todoTasksCount !== 1 ? "s" : ""}`;
+  }
+  if (inProgressCount) {
+    inProgressCount.textContent = `${inProgressTasksCount} task${inProgressTasksCount !== 1 ? "s" : ""}`;
+  }
+  if (completedCount) {
+    completedCount.textContent = `${completedTasksCount} task${completedTasksCount !== 1 ? "s" : ""}`;
+  }
 
   // Empty state
   if (todoContainer && todoContainer.children.length === 0) {
